@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, Play, Pause, Volume2, AlertCircle, Zap, Sprout } from 'lucide-react';
 import B6_MapHeader from './B6_MapHeader';
 import B6_MapCanvas from './B6_MapCanvas';

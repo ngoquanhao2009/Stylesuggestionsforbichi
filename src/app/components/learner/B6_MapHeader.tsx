@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { ArrowLeft, Play, Pause, MapPin } from 'lucide-react';
 
 interface MapHeaderProps {
