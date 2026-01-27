@@ -242,15 +242,13 @@ const B6_MapDistribution: React.FC<B6_MapDistributionProps> = ({ onBack }) => {
               </motion.div>
 
               {/* Info Panel */}
-              <AnimatePresence>
-                {selectedArea && (
-                  <B6_InfoPanel
-                    area={selectedArea}
-                    currentYear={currentYear}
-                    onClose={() => setSelectedArea(null)}
-                  />
-                )}
-              </AnimatePresence>
+              {selectedArea && (
+                <B6_InfoPanel
+                  area={selectedArea}
+                  currentYear={currentYear}
+                  onClose={() => setSelectedArea(null)}
+                />
+              )}
             </div>
 
             {/* Time Slider */}
