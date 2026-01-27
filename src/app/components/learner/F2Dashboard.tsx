@@ -184,6 +184,40 @@ export function F2Dashboard({ onNavigate }: F2DashboardProps) {
               </p>
             </Card>
           </motion.div>
+
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Card 
+              className="p-6 cursor-pointer hover:shadow-2xl transition-all border-2 bg-white"
+              style={{ borderColor: 'var(--baichoi-earth)' }}
+              onClick={() => onNavigate('distribution')}
+            >
+              <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.5 }}>
+                <Database 
+                  size={32} 
+                  className="mb-3"
+                  style={{ color: 'var(--baichoi-brick)' }}
+                />
+              </motion.div>
+              <h3 
+                className="mb-2"
+                style={{ color: 'var(--baichoi-earth-dark)' }}
+              >
+                Phân Phối & Giáo Dục
+              </h3>
+              <p 
+                className="text-sm opacity-70"
+                style={{ color: 'var(--baichoi-earth)' }}
+              >
+                Khám phá bản đồ giáo dục
+              </p>
+            </Card>
+          </motion.div>
         </div>
       </div>
     </div>

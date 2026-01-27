@@ -13,6 +13,7 @@ import { F5Practice } from "@/app/components/learner/F5Practice";
 import { F6Evaluation } from "@/app/components/learner/F6Evaluation";
 import { F7Progress } from "@/app/components/learner/F7Progress";
 import { F8Community } from "@/app/components/learner/F8Community";
+import B6_MapDistribution from "@/app/components/learner/B6_MapDistribution";
 
 // Artisan Components
 import { ArtisanDashboard } from "@/app/components/artisan/ArtisanDashboard";
@@ -351,10 +352,12 @@ export default function App() {
               score={practiceScore}
               onBack={() => setScreen("practice")}
               onContinue={() => setScreen("dashboard")}
+              onViewProgress={() => setScreen("progress")}
             />
           )}
           {screen === "progress" && <F7Progress onBack={() => setScreen("dashboard")} />}
           {screen === "community" && <F8Community onBack={() => setScreen("dashboard")} />}
+          {screen === "distribution" && <B6_MapDistribution onBack={() => setScreen("dashboard")} />}
         </motion.div>
       </AnimatePresence>
     );
