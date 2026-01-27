@@ -1,6 +1,6 @@
 import { Button } from "@/app/components/ui/button";
 import { Card } from "@/app/components/ui/card";
-import { Camera, Book, Trophy, Users } from "lucide-react";
+import { Camera, Book, Trophy, Users, Database } from "lucide-react";
 import { motion } from "motion/react";
 
 interface F2DashboardProps {
