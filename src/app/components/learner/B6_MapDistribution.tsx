@@ -7,7 +7,6 @@ import B6_InfoPanel from './B6_InfoPanel';
 import B6_TimeSlider from './B6_TimeSlider';
 import B6_StoryMode from './B6_StoryMode';
 import { getDaNangAreas } from '@/data/danangAreas';
-import '../../../styles/B6_Animations.css';
 
 interface Area {
   id: string;
