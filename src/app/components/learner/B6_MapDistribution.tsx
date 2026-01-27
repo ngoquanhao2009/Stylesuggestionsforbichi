@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import { MapPin, Play, Pause, Volume2, AlertCircle, Zap, Sprout } from 'lucide-react';
 import B6_MapHeader from './B6_MapHeader';
 import B6_MapCanvas from './B6_MapCanvas';
@@ -83,17 +83,9 @@ const B6_MapDistribution: React.FC<B6_MapDistributionProps> = ({ onBack }) => {
 
   return (
     <div className="w-full h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden">
-      <AnimatePresence mode="wait">
-        {!showMap ? (
-          /* ENTRY UI */
-          <motion.div
-            key="entry"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
-            className="w-full h-full flex flex-col items-center justify-center gap-12 p-8"
-          >
+      {!showMap ? (
+        /* ENTRY UI */
+        <div className="w-full h-full flex flex-col items-center justify-center gap-12 p-8">
             {/* Section Header */}
             <motion.div
               className="text-center space-y-6"
@@ -169,17 +161,10 @@ const B6_MapDistribution: React.FC<B6_MapDistributionProps> = ({ onBack }) => {
                 🎭
               </motion.div>
             </div>
-          </motion.div>
+          </div>
         ) : (
           /* MAP VIEW */
-          <motion.div
-            key="map"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.6 }}
-            className="w-full h-full flex flex-col"
-          >
+          <div className="w-full h-full flex flex-col">
             <B6_MapHeader 
               onBack={onBack || (() => setShowMap(false))} 
               onStoryMode={() => setStoryMode(!storyMode)}
@@ -281,9 +266,8 @@ const B6_MapDistribution: React.FC<B6_MapDistributionProps> = ({ onBack }) => {
                 disabled={storyMode}
               />
             </motion.div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
     </div>
   );
 };
