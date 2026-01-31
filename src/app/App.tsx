@@ -60,9 +60,11 @@ export default function App() {
     setScreen("welcome");
   };
 
+  let content: React.ReactNode = null;
+
   // Role Selection Screen
   if (role === null) {
-    return (
+    content = (
       <motion.div 
         initial="initial"
         animate="animate"
@@ -281,8 +283,8 @@ export default function App() {
   }
 
   // Style Guide
-  if (role === "styleguide") {
-    return (
+  else if (role === "styleguide") {
+    content = (
       <motion.div
         initial="initial"
         animate="animate"
@@ -311,8 +313,8 @@ export default function App() {
   }
 
   // Learner Flow (F1-F8)
-  if (role === "learner") {
-    return (
+  else if (role === "learner") {
+    content = (
       <AnimatePresence mode="wait">
         <motion.div
           key={screen}
@@ -366,8 +368,8 @@ export default function App() {
   }
 
   // Artisan Flow (A1-A3)
-  if (role === "artisan") {
-    return (
+  else if (role === "artisan") {
+    content = (
       <AnimatePresence mode="wait">
         <motion.div
           key={screen}
@@ -387,8 +389,8 @@ export default function App() {
   }
 
   // Researcher Flow (B1-B8)
-  if (role === "researcher") {
-    return (
+  else if (role === "researcher") {
+    content = (
       <AnimatePresence mode="wait">
         <motion.div
           key={screen}
@@ -417,5 +419,10 @@ export default function App() {
     );
   }
 
-  return null;
+  return (
+    <>
+      <GlobalRipple />
+      {content}
+    </>
+  );
 }
