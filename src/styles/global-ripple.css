@@ -1,10 +1,11 @@
 
 
 
+
 .global-ripple {
   position: fixed;
-  width: 18px;
-  height: 18px;
+  width: 4.5px;
+  height: 4.5px;
   border-radius: 50%;
   pointer-events: none;
   /* Bubble: tâm xanh lá đậm, viền xanh dương nhạt, pop nhẹ */
@@ -14,7 +15,7 @@
     #1cb5e0 80%,          /* chuyển sang xanh dương nhạt */
     rgba(28,181,224,0.01) 100% /* rìa rất nhạt */
   );
-  box-shadow: 0 0 8px 2px #1cb5e044;
+  box-shadow: 0 0 2px 0.5px #1cb5e044;
   transform: translate(-50%, -50%) scale(1);
   opacity: 0.7;
   animation: ripple-bubble 0.38s cubic-bezier(0.4,0,0.2,1) forwards;
