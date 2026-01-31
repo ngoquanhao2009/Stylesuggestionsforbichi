@@ -172,7 +172,7 @@ const B6_MapDistribution: React.FC<B6_MapDistributionProps> = ({ onBack }) => {
               storyMode={storyMode}
             />
 
-            <div className="flex-1 flex gap-4 p-4 overflow-hidden">
+            <div className="flex-1 flex gap-4 p-4 overflow-hidden relative">
               {/* Map Container */}
               <motion.div
                 ref={mapContainerRef}
@@ -196,14 +196,32 @@ const B6_MapDistribution: React.FC<B6_MapDistributionProps> = ({ onBack }) => {
                   storyMode={storyMode}
                 />
 
-                {/* Legend */}
+                {/* Timeline overlay góc trái dưới map */}
                 <motion.div
-                  className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md p-4 rounded-lg shadow-lg"
+                  className="absolute left-4 bottom-4 md:left-4 md:bottom-4 z-20"
+                  style={{ minWidth: 220, maxWidth: 340 }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8 }}
                 >
-                  <h3 className="font-bold text-sm mb-3 text-gray-800">Chú thích</h3>
+                  <div className="bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl px-4 py-3 flex flex-col gap-2">
+                    <B6_TimeSlider 
+                      currentYear={currentYear} 
+                      onYearChange={setCurrentYear}
+                      disabled={storyMode}
+                      compact
+                    />
+                  </div>
+                </motion.div>
+
+                {/* Legend */}
+                <motion.div
+                  className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-md p-4 rounded-lg shadow-lg z-10"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8 }}
+                >
+                  <h3 className="font-bold text-base mb-3 text-gray-800">Chú thích</h3>
                   <div className="space-y-2">
                     <LegendItem color="bg-red-500" label="Cần bảo tồn gấp" icon="⚠️" />
                     <LegendItem color="bg-yellow-500" label="Đang truyền dạy" icon="🎶" />
@@ -212,7 +230,7 @@ const B6_MapDistribution: React.FC<B6_MapDistributionProps> = ({ onBack }) => {
                 </motion.div>
 
                 {/* Zoom controls */}
-                <div className="absolute top-4 right-4 flex gap-2">
+                <div className="absolute top-4 right-4 flex gap-2 z-20">
                   <motion.button
                     onClick={() => setMapZoom(prev => Math.min(3, prev + 0.2))}
                     className="w-10 h-10 bg-white/90 rounded-lg shadow-lg flex items-center justify-center hover:bg-gray-100"
@@ -242,29 +260,29 @@ const B6_MapDistribution: React.FC<B6_MapDistributionProps> = ({ onBack }) => {
                 </div>
               </motion.div>
 
-              {/* Info Panel */}
+              {/* Info Panel to, font lớn, contrast cao, desktop chiếm 30–35%, mobile là bottom sheet */}
               {selectedArea && (
-                <B6_InfoPanel
-                  area={selectedArea}
-                  currentYear={currentYear}
-                  onClose={() => setSelectedArea(null)}
-                />
+                <div className="hidden md:block w-[32vw] min-w-[320px] max-w-[480px] h-full">
+                  <B6_InfoPanel
+                    area={selectedArea}
+                    currentYear={currentYear}
+                    onClose={() => setSelectedArea(null)}
+                    large
+                  />
+                </div>
+              )}
+              {/* Mobile: info panel dạng bottom sheet */}
+              {selectedArea && (
+                <div className="fixed md:hidden left-0 right-0 bottom-0 z-30">
+                  <B6_InfoPanel
+                    area={selectedArea}
+                    currentYear={currentYear}
+                    onClose={() => setSelectedArea(null)}
+                    mobileSheet
+                  />
+                </div>
               )}
             </div>
-
-            {/* Time Slider */}
-            <motion.div
-              className="px-6 py-4 bg-gradient-to-r from-blue-900/80 to-emerald-900/80 backdrop-blur-sm border-t border-white/10"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-            >
-              <B6_TimeSlider 
-                currentYear={currentYear} 
-                onYearChange={setCurrentYear}
-                disabled={storyMode}
-              />
-            </motion.div>
           </div>
         )}
     </div>
