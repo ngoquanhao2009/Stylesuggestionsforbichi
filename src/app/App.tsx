@@ -30,6 +30,8 @@ import { ImpactStatus } from "@/app/components/researcher/ImpactStatus";
 // Style Guide
 import { BaiChoiStyleGuide } from "@/app/components/BaiChoiStyleGuide";
 
+import GlobalRipple from "@/app/components/GlobalRipple";
+
 type Role = null | "learner" | "artisan" | "researcher" | "styleguide";
 type Screen = string;
 
