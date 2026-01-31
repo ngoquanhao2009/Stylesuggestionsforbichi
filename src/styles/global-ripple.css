@@ -1,39 +1,36 @@
 
+
 .global-ripple {
   position: fixed;
-  width: 12px;
-  height: 12px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   pointer-events: none;
-  /* Gradient: xanh lá đậm ở tâm, chuyển sang xanh dương nhạt ở rìa */
+  /* Gradient: tâm xanh lá đậm, viền xanh dương rõ nét */
   background: radial-gradient(circle,
-    #1ed760 0%,         /* xanh lá đậm ở tâm */
-    #1ed760 20%,        /* giữ tâm đậm */
-    #1cb5e0 60%,        /* chuyển sang xanh dương */
-    #1cb5e0 80%,        /* xanh dương nhạt hơn */
-    rgba(28,181,224,0.05) 100% /* rìa rất nhạt */
+    #19e642 0%,           /* xanh lá đậm ở tâm */
+    #19e642 18%,          /* giữ tâm đậm */
+    #1cb5e0 45%,          /* chuyển sang xanh dương rõ nét */
+    #1cb5e0 70%,          /* xanh dương nhạt hơn */
+    rgba(28,181,224,0.01) 100% /* rìa rất nhạt */
   );
-  box-shadow: 0 0 32px 8px #1ed76044, 0 0 0 2px #1cb5e055;
+  box-shadow: 0 0 0 0 #19e642, 0 0 32px 8px #1cb5e088;
   transform: translate(-50%, -50%) scale(1);
-  opacity: 0.45;
-  animation: ripple-wave 0.7s cubic-bezier(0.4,0,0.2,1) forwards;
+  opacity: 0.7;
+  animation: ripple-wave 0.8s cubic-bezier(0.4,0,0.2,1) forwards;
   z-index: 2147483647;
-  filter: blur(0.5px);
 }
 
 @keyframes ripple-wave {
   0% {
-    opacity: 0.45;
+    opacity: 0.7;
     transform: translate(-50%, -50%) scale(1);
-    filter: blur(0.5px);
   }
   60% {
-    opacity: 0.25;
-    filter: blur(1.5px);
+    opacity: 0.4;
   }
   100% {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(22);
-    filter: blur(2.5px);
+    transform: translate(-50%, -50%) scale(28);
   }
 }
