@@ -109,23 +109,24 @@ const B6_MapDistribution: React.FC<B6_MapDistributionProps> = ({ onBack }) => {
             {/* Main CTA Button */}
             <motion.button
               onClick={handleViewMap}
-              className="group relative px-8 py-4 rounded-full font-bold text-white text-xl overflow-hidden"
+              className="group relative px-8 py-4 rounded-full font-bold text-white text-xl overflow-hidden focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300 select-none cursor-pointer touch-manipulation min-w-[44px] min-h-[44px]"
+              style={{ WebkitTapHighlightColor: 'transparent', zIndex: 2 }}
               whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(34, 197, 94, 0.8)' }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.97 }}
               initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
               {/* Gradient background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-yellow-400 group-hover:from-emerald-400 group-hover:to-yellow-300 transition-all duration-300" />
-              
-              {/* Ripple effect on click */}
-              <div className="absolute inset-0 opacity-0 group-active:opacity-100 transition-opacity">
-                <div className="absolute inset-0 animate-ripple bg-white/20 rounded-full" />
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-yellow-400 group-hover:from-emerald-400 group-hover:to-yellow-300 transition-all duration-300 pointer-events-none rounded-full" />
+
+              {/* Ripple effect on click (visual only, không chặn input) */}
+              <div className="absolute inset-0 pointer-events-none">
+                {/* Ripple sẽ được GlobalRipple xử lý, không cần overlay ở đây */}
               </div>
 
               {/* Content */}
-              <div className="relative flex items-center gap-3">
+              <div className="relative flex items-center gap-3 select-none">
                 <motion.span
                   className="text-2xl"
                   animate={{ rotate: [0, 5, -5, 0] }}
@@ -138,7 +139,7 @@ const B6_MapDistribution: React.FC<B6_MapDistributionProps> = ({ onBack }) => {
 
               {/* Pulse animation */}
               <motion.div
-                className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-500 to-yellow-400 opacity-0"
+                className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-500 to-yellow-400 opacity-0 pointer-events-none"
                 animate={{ scale: [1, 1.5], opacity: [0.5, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
