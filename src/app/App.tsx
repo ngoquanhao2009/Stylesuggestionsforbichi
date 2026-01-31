@@ -400,7 +400,14 @@ export default function App() {
           variants={pageVariants}
           transition={pageTransition}
         >
-          {screen === "welcome" && <ResearcherDashboard onBack={resetToRoleSelection} onNavigate={setScreen} />}
+          {screen === "welcome" && <ResearcherDashboard onBack={resetToRoleSelection} onNavigate={(s) => {
+            if (s === "distribution") {
+              setRole("learner");
+              setScreen("distribution");
+            } else {
+              setScreen(s);
+            }
+          }} />}
           {screen === "archive" && (
             <HeritageArchive 
               onBack={() => setScreen("welcome")}
