@@ -26,4 +26,6 @@ There are many advantages of online shopping. First of all, it is very convenien
 However, online shopping also has some disadvantages. One problem is that customers may get scammed or receive low-quality products. Sometimes the real products are very different from the pictures online. This can make customers lose money and feel disappointed. However, I think these problems can be reduced because shopping apps now have customer reviews, refund policies, and safer payment methods to protect buyers.
 
 In conclusion, although online shopping has a few disadvantages, I think it still has more advantages for both consumers and companies.
+
+street : BACBCB |job6 adverts / advertisements 7 newspaper 8 agency 9 tutors 10 feedback||| david  11 A 12 B 13 C 14 A 15 B | sunnington14 (the) changing (room) 15 shorts   16 shoe(s)   17 1.45 18 biscuit(s)   19 speed(s) lucy8 A   9 C   10 B   11 C   12 C   13 A
   
